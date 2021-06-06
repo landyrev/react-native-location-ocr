@@ -19,7 +19,7 @@ export type OCRViewPropsType = ViewProps & {
   androidCameraPermissionOptions?: RNCamera['props']['androidCameraPermissionOptions'];
 };
 
-export const OCRView: React.FC<OCRViewPropsType> = ({
+export const LocationOCRView: React.FC<OCRViewPropsType> = ({
   rectOfInterest = {
     x: 0.1,
     y: 0.45,

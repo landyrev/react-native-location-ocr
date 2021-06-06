@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "react-native-ocr": ["./src/index"]
+      "react-native-location-ocr": ["./src/index"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,

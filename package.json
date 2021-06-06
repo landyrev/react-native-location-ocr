@@ -1,5 +1,5 @@
 {
-  "name": "react-native-ocr",
+  "name": "react-native-location-ocr",
   "version": "0.1.0",
   "description": "React Native Live OCR",
   "main": "lib/commonjs/index",
@@ -13,7 +13,7 @@
     "android",
     "ios",
     "cpp",
-    "react-native-ocr.podspec",
+    "react-native-location-ocr.podspec",
     "!lib/typescript/example",
     "!android/build",
     "!ios/build",
@@ -36,13 +36,13 @@
     "ios",
     "android"
   ],
-  "repository": "https://github.com/landyrev/react-native-ocr",
+  "repository": "https://github.com/landyrev/react-native-location-ocr",
   "author": "Alexey Landyrev <landyrevag@gmail.com> (https://github.com/landyrev)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/landyrev/react-native-ocr/issues"
+    "url": "https://github.com/landyrev/react-native-location-ocr/issues"
   },
-  "homepage": "https://github.com/landyrev/react-native-ocr#readme",
+  "homepage": "https://github.com/landyrev/react-native-location-ocr#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },

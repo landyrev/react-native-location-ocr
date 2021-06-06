@@ -49,9 +49,30 @@ export class Coordinate implements IHasValueOf {
     ];
   }
 
+  static isCoordinateValid(coordinate: IDMSCoordinate) {
+    if (coordinate.degrees < 0 || coordinate.degrees > 90) {
+      return false;
+    }
+    if (coordinate.minutes < 0 || coordinate.minutes > 60) {
+      return false;
+    }
+    if (coordinate.seconds < 0 || coordinate.seconds > 3600) {
+      return false;
+    }
+    return true;
+  }
+
   static fromDMSCoordinate(
     coordinate: [IDMSCoordinate, IDMSCoordinate]
-  ): Coordinate {
+  ): Coordinate | null {
+    if (!Coordinate.isCoordinateValid(coordinate[0])) {
+      return null;
+    }
+
+    if (!Coordinate.isCoordinateValid(coordinate[1])) {
+      return null;
+    }
+
     const parsed = new Coordinate(
       Coordinate.convertDMSToDD(coordinate[0]),
       Coordinate.convertDMSToDD(coordinate[1])

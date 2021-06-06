@@ -2,7 +2,7 @@ import * as React from 'react';
 import { StyleSheet } from 'react-native';
 import { DisplayCoordinates } from './components/DisplayCoordinates';
 
-import { OCRView } from 'react-native-ocr';
+import { LocationOCRView } from 'react-native-location-ocr';
 import { Coordinate } from 'src/coordinate';
 
 export default function App() {
@@ -15,7 +15,7 @@ export default function App() {
           coordinates={coordinate}
         />
       ) : (
-        <OCRView
+        <LocationOCRView
           style={styles.root}
           onDetect={(c) => {
             if (c) {

@@ -1,17 +1,17 @@
-# react-native-ocr
+# react-native-location-ocr
 
 React Native Live OCR
 
 ## Installation
 
 ```sh
-npm install react-native-ocr
+npm install react-native-location-ocr
 ```
 
 ## Usage
 
 ```js
-import Ocr from "react-native-ocr";
+import Ocr from 'react-native-location-ocr';
 
 // ...
 
