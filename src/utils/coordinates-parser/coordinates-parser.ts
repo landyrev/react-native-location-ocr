@@ -1,7 +1,7 @@
 import { LayoutRectangle } from 'react-native';
 import { Point, Size, TrackedTextFeature } from 'react-native-camera';
-import { Coordinate } from 'src/coordinate';
-import { parseDmsCoordinates } from './parse-dms-coordinates';
+import { Coordinate } from '../../coordinate';
+import modules from './modules';
 
 const distanceFromCenter = (
   { size, origin }: { size: Size; origin: Point },
@@ -15,7 +15,13 @@ const distanceFromCenter = (
   return Math.sqrt(x * x + y * y);
 };
 
-export const recognizeCoordinates = (
+/**
+ * Parse given array of recognized text features to Coordinate instance
+ * @param {TrackedTextFeature[]} features
+ * @param {LayoutRectangle} layout
+ * @returns {Coordinate}
+ */
+export const parseCoordinates = (
   features: TrackedTextFeature[],
   layout?: LayoutRectangle
 ): Coordinate | null => {
@@ -25,7 +31,12 @@ export const recognizeCoordinates = (
   }> = [];
   for (const feature of features) {
     for (const component of feature.components) {
-      const coordinates = parseDmsCoordinates(component.value);
+      let coordinates: Coordinate | null = null;
+      for (const parseModule of modules) {
+        if (!coordinates) {
+          coordinates = parseModule(component.value);
+        }
+      }
       if (coordinates) {
         foundCoordinates.push({
           coordinates,

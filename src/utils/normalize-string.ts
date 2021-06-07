@@ -6,6 +6,11 @@ const NUMBER_REPLACEMENTS = {
   b: '8',
 };
 
+/**
+ * Normalize given string
+ * @param {string} s
+ * @returns {string}
+ */
 export const normalizeString = (s: string): string => {
   let result = s;
   result = result.toLocaleLowerCase();

@@ -8,7 +8,7 @@ import {
 import { Coordinate } from './coordinate';
 import { useResultConfirm } from './hooks/use-result-confirm';
 import { TargetView } from './target';
-import { recognizeCoordinates } from './utils/coordinates-recognize';
+import { parseCoordinates } from './utils';
 
 export type OCRViewPropsType = RNCameraProps &
   ViewProps & {
@@ -51,7 +51,7 @@ export const LocationOCRView: React.FC<OCRViewPropsType> = ({
 
   const onRecognized = useCallback(
     (features: TrackedTextFeature[]) => {
-      const coordinate = recognizeCoordinates(features, layout);
+      const coordinate = parseCoordinates(features, layout);
       if (coordinate) {
         setDetectedCoordinate(coordinate);
       }
