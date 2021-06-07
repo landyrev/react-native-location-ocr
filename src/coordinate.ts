@@ -50,13 +50,13 @@ export class Coordinate implements IHasValueOf {
   }
 
   static isCoordinateValid(coordinate: IDMSCoordinate) {
-    if (coordinate.degrees < 0 || coordinate.degrees > 90) {
+    if (coordinate.degrees < 0 || coordinate.degrees >= 60) {
       return false;
     }
-    if (coordinate.minutes < 0 || coordinate.minutes > 60) {
+    if (coordinate.minutes < 0 || coordinate.minutes >= 60) {
       return false;
     }
-    if (coordinate.seconds < 0 || coordinate.seconds > 3600) {
+    if (coordinate.seconds < 0 || coordinate.seconds >= 60) {
       return false;
     }
     return true;
@@ -95,19 +95,11 @@ export class Coordinate implements IHasValueOf {
   }
 
   static DDToDMS(deg: number) {
-    var degrees = Math.floor(deg);
-    var minfloat = (deg - degrees) * 60;
-    var minutes = Math.floor(minfloat);
-    var secfloat = (minfloat - minutes) * 60;
-    var seconds = Math.round(secfloat);
-    if (seconds === 60) {
-      minutes++;
-      seconds = 0;
-    }
-    if (minutes === 60) {
-      degrees++;
-      minutes = 0;
-    }
+    const absolute = Math.abs(deg);
+    const degrees = Math.floor(absolute);
+    const minutesNotTruncated = (absolute - degrees) * 60;
+    const minutes = Math.floor(minutesNotTruncated);
+    const seconds = Math.round((minutesNotTruncated - minutes) * 60);
     return { degrees, minutes, seconds };
   }
 }

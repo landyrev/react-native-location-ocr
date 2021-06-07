@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button, Text } from 'react-native';
 import { Coordinate } from 'src/coordinate';
 import { DisplayDMS } from './DisplayDMS';
 
@@ -17,6 +17,8 @@ export const DisplayCoordinates: React.FC<DisplayCoordinatesProps> = ({
     <View style={styles.root}>
       <DisplayDMS coordinate={dmsCoordinate[0]} />
       <DisplayDMS coordinate={dmsCoordinate[1]} />
+      <Text>Latitude: {coordinates.latitude}</Text>
+      <Text>Longitude: {coordinates.longitude}</Text>
       <Button onPress={() => onPress()} title="Try Again" />
     </View>
   );
