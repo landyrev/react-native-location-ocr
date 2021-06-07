@@ -2,6 +2,25 @@
 
 React Native Scanner for Geo Coordinates
 
+## Usage
+
+```typescript
+import { LocationOCRView } from 'react-native-location-ocr';
+
+const App = () => {
+  return (
+    <LocationOCRView
+      style={styles.root}
+      onDetect={(coordinates) => {
+        console.log('Coordinates');
+      }}
+    />
+  );
+};
+```
+
+[See example folder](/example).
+
 ## Installation
 
 ### Install Package
@@ -10,9 +29,9 @@ React Native Scanner for Geo Coordinates
 npm install react-native-location-ocr
 ```
 
-### iOS steps
+### iOS installation steps
 
-### Adding permissions
+#### Adding permissions
 
 Add permissions with usage descriptions to your app `Info.plist`:
 
@@ -22,7 +41,7 @@ Add permissions with usage descriptions to your app `Info.plist`:
 <string>Your message to user when the camera is accessed for the first time</string>
 ```
 
-### Modifying Podfile
+#### Modifying Podfile
 
 Add dependency towards `react-native-camera` in your `Podfile` with `subspecs` using one of the following:
 
@@ -109,25 +128,6 @@ apply plugin: 'com.google.gms.google-services'
       android:value="ocr, face" /> <!-- choose models that you will use -->
 </application>
 ```
-
-## Usage
-
-```typescript
-import { LocationOCRView } from 'react-native-location-ocr';
-
-const App = () => {
-  return (
-    <LocationOCRView
-      style={styles.root}
-      onDetect={(coordinates) => {
-        console.log('Coordinates');
-      }}
-    />
-  );
-};
-```
-
-[See example folder](/example).
 
 ## License
 
