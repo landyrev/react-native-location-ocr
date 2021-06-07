@@ -56,7 +56,7 @@ export class Coordinate implements IHasValueOf {
     if (coordinate.minutes < 0 || coordinate.minutes >= 60) {
       return false;
     }
-    if (coordinate.seconds < 0 || coordinate.seconds >= 60) {
+    if (coordinate.seconds < 0 || coordinate.seconds >= 100) {
       return false;
     }
     return true;
@@ -86,8 +86,7 @@ export class Coordinate implements IHasValueOf {
     seconds = 0,
     direction,
   }: IDMSCoordinate): number {
-    var dd = degrees + minutes / 60 + seconds / (60 * 60);
-
+    var dd = degrees + (minutes + seconds / 100) / 60;
     if (direction === 'S' || direction === 'W') {
       dd = dd * -1;
     }
@@ -99,7 +98,7 @@ export class Coordinate implements IHasValueOf {
     const degrees = Math.floor(absolute);
     const minutesNotTruncated = (absolute - degrees) * 60;
     const minutes = Math.floor(minutesNotTruncated);
-    const seconds = Math.round((minutesNotTruncated - minutes) * 60);
+    const seconds = Math.round((minutesNotTruncated - minutes) * 100);
     return { degrees, minutes, seconds };
   }
 }
