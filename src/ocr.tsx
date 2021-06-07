@@ -3,7 +3,6 @@ import { LayoutRectangle, ViewProps } from 'react-native';
 import {
   RNCamera,
   RNCameraProps,
-  RectOfInterest,
   TrackedTextFeature,
 } from 'react-native-camera';
 import { Coordinate } from './coordinate';
@@ -13,12 +12,18 @@ import { recognizeCoordinates } from './utils/coordinates-recognize';
 
 export type OCRViewPropsType = RNCameraProps &
   ViewProps & {
+    /**
+     * Callback when coordinate detected
+     */
     onDetect: (coordinate: Coordinate) => void;
-    rectOfInterest?: RectOfInterest;
+    /**
+     * Show target line on preview screen
+     */
     showTarget?: boolean;
+    /**
+     * Target line color
+     */
     targetColor?: string;
-    targetProgressBarColor?: string;
-    androidCameraPermissionOptions?: RNCamera['props']['androidCameraPermissionOptions'];
   };
 
 export const LocationOCRView: React.FC<OCRViewPropsType> = ({
@@ -30,7 +35,6 @@ export const LocationOCRView: React.FC<OCRViewPropsType> = ({
   },
   style,
   showTarget = true,
-  targetProgressBarColor,
   targetColor,
   onDetect,
   ...props
@@ -64,11 +68,7 @@ export const LocationOCRView: React.FC<OCRViewPropsType> = ({
       captureAudio={false}
     >
       {showTarget && (
-        <TargetView
-          progressBarColor={targetProgressBarColor}
-          color={targetColor}
-          rectOfInterest={rectOfInterest}
-        />
+        <TargetView color={targetColor} rectOfInterest={rectOfInterest} />
       )}
     </RNCamera>
   );

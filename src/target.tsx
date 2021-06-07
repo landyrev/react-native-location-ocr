@@ -4,16 +4,12 @@ import { RectOfInterest } from 'react-native-camera';
 
 export type TargetProps = ViewProps & {
   rectOfInterest: RectOfInterest;
-  progressBarColor?: string;
   color?: string;
-  progressBarPosition?: number;
 };
 
 export const TargetView: React.FC<TargetProps> = ({
   rectOfInterest,
   style,
-  progressBarColor = 'blue',
-  progressBarPosition,
   color = 'white',
   ...props
 }) => {
@@ -60,17 +56,7 @@ export const TargetView: React.FC<TargetProps> = ({
               backgroundColor: color,
             },
           ]}
-        >
-          <View
-            style={[
-              styles.progressBar,
-              {
-                width: progressBarPosition ? `${progressBarPosition}%` : `0%`,
-                backgroundColor: progressBarColor,
-              },
-            ]}
-          />
-        </View>
+        />
       </View>
     </View>
   );
@@ -99,8 +85,5 @@ const styles = StyleSheet.create({
       height: 0,
       width: 0,
     },
-  },
-  progressBar: {
-    height: '100%',
   },
 });
