@@ -10,9 +10,14 @@ const distanceFromCenter = (
   if (!layout) {
     return 0;
   }
-  const x = (origin.x + size.width / 2) / layout.width;
-  const y = (origin.y + size.height / 2) / layout.height;
-  return Math.sqrt(x * x + y * y);
+  const centerX = layout.width / 2;
+  const centerY = layout.height / 2;
+  const x = origin.x + size.width / 2;
+  const y = origin.y + size.height / 2;
+  const distance = Math.sqrt(
+    Math.pow(centerX - x, 2) + Math.pow(centerY - y, 2)
+  );
+  return distance;
 };
 
 /**
@@ -38,9 +43,10 @@ export const parseCoordinates = (
         }
       }
       if (coordinates) {
+        const distance = distanceFromCenter(component.bounds, layout);
         foundCoordinates.push({
           coordinates,
-          distance: distanceFromCenter(component.bounds, layout),
+          distance,
         });
       }
     }
