@@ -18,6 +18,7 @@
 		69B358B6A7B867C981FDF6E3 /* libPods-OcrExample.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4189F1F9FA4C6C5DB235F74C /* libPods-OcrExample.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		B46BCF98266CBF3E00EC47F4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B46BCF97266CBF3E00EC47F4 /* GoogleService-Info.plist */; };
+		B4D8FFF6266E1C5400A200C3 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
 		B4F4C701266E0A82003C2EBB /* Dummy.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4F4C700266E0A82003C2EBB /* Dummy.swift */; };
 		B4F4C703266E0AE5003C2EBB /* libDoubleConversion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B4F4C702266E0AE5003C2EBB /* libDoubleConversion.a */; };
 /* End PBXBuildFile section */
@@ -324,6 +325,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4D8FFF6266E1C5400A200C3 /* main.jsbundle in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				B46BCF98266CBF3E00EC47F4 /* GoogleService-Info.plist in Resources */,
