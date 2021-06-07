@@ -1,26 +1,41 @@
 # react-native-location-ocr
 
-React Native Live OCR
+React Native Scanner for Geo Coordinates
 
 ## Installation
+
+### Install Package
 
 ```sh
 npm install react-native-location-ocr
 ```
 
+### Initialize Firebase App
+
+[See instructions]()
+
+### iOS steps
+
+### Android steps
+
 ## Usage
 
-```js
-import Ocr from 'react-native-location-ocr';
+```typescript
+import { LocationOCRView } from 'react-native-location-ocr';
 
-// ...
-
-const result = await Ocr.multiply(3, 7);
+const App = () => {
+  return (
+    <LocationOCRView
+      style={styles.root}
+      onDetect={(coordinates) => {
+        console.log('Coordinates');
+      }}
+    />
+  );
+};
 ```
 
-## Contributing
-
-See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
+[See example folder](/example).
 
 ## License
 
