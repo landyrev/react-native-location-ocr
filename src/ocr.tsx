@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { LayoutRectangle, ViewProps } from 'react-native';
 import {
   RNCamera,
+  RNCameraProps,
   RectOfInterest,
   TrackedTextFeature,
 } from 'react-native-camera';
@@ -10,14 +11,15 @@ import { useResultConfirm } from './hooks/use-result-confirm';
 import { TargetView } from './target';
 import { recognizeCoordinates } from './utils/coordinates-recognize';
 
-export type OCRViewPropsType = ViewProps & {
-  onDetect: (coordinate: Coordinate) => void;
-  rectOfInterest?: RectOfInterest;
-  showTarget?: boolean;
-  targetColor?: string;
-  targetProgressBarColor?: string;
-  androidCameraPermissionOptions?: RNCamera['props']['androidCameraPermissionOptions'];
-};
+export type OCRViewPropsType = RNCameraProps &
+  ViewProps & {
+    onDetect: (coordinate: Coordinate) => void;
+    rectOfInterest?: RectOfInterest;
+    showTarget?: boolean;
+    targetColor?: string;
+    targetProgressBarColor?: string;
+    androidCameraPermissionOptions?: RNCamera['props']['androidCameraPermissionOptions'];
+  };
 
 export const LocationOCRView: React.FC<OCRViewPropsType> = ({
   rectOfInterest = {
@@ -59,6 +61,7 @@ export const LocationOCRView: React.FC<OCRViewPropsType> = ({
       onLayout={({ nativeEvent }) => setLayout(nativeEvent.layout)}
       onTextRecognized={(r) => onRecognized(r.textBlocks)}
       rectOfInterest={rectOfInterest}
+      captureAudio={false}
     >
       {showTarget && (
         <TargetView
