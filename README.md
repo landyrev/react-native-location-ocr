@@ -1,6 +1,6 @@
 # react-native-location-ocr
 
-React Native Scanner for Geo Coordinates
+React Native Camera Scanner for Geo Coordinates
 
 ## Usage
 
