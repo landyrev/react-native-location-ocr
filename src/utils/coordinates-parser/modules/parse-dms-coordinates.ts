@@ -22,7 +22,7 @@ export const parseDmsCoordinates: ParserType = (
 ): Coordinate | null => {
   const normalizedString = normalizeString(source);
   const re = new RegExp(
-    /(\d{1,2})\D{0,3}?(\d{1,2})\D{0,3}?(\d{1,2}(?:[.,]\d{1,})?)\D{0,3}?([ns])\D{0,6}?(\d{1,2})\D{0,3}?(\d{1,2})\D{0,3}?(\d{1,2}(?:[.,]\d{1,})?)\D{0,3}?([we])/,
+    /(\d{1,2})\D{0,1}?(\d{1,2})\D{0,1}?(\d{1,2}(?:[.,]\d{1,})?)\D{0,3}?([ns])\D{0,6}?(\d{1,2})\D{0,1}?(\d{1,2})\D{0,1}?(\d{1,2}(?:[.,]\d{1,})?)\D{0,1}?([we])/,
     'gi'
   );
   let matchResult = re.exec(normalizedString);

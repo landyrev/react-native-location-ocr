@@ -9,7 +9,7 @@ interface UseResultConfirmOptions {
 export function useResultConfirm<T extends IHasValueOf>(
   options?: UseResultConfirmOptions
 ): [T | null, (v: T) => void] {
-  const { failThresholdNumber = 5, successThresholdNumber = 3 } = options || {};
+  const { failThresholdNumber = 2, successThresholdNumber = 3 } = options || {};
   const [value, setValue] = useState<T | null>(null);
   const [result, setResult] = useState<T | null>(null);
   const [successCount, setSuccessCount] = useState(0);
