@@ -8,11 +8,12 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "start": "react-native start",
-    "build:ios": "npx react-native bundle --entry-file='index.tsx' --reset-cache --platform ios --bundle-output ios/main.jsbundle"
+    "build:ios": "npx react-native bundle --entry-file='index.tsx' --dev false --reset-cache --platform ios --bundle-output ios/main.jsbundle"
   },
   "dependencies": {
     "react": "16.13.1",
-    "react-native": "0.63.4"
+    "react-native": "0.63.4",
+    "react-native-camera": "^3.44.1"
   },
   "devDependencies": {
     "@babel/core": "^7.12.10",
